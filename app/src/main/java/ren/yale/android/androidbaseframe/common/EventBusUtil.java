@@ -9,10 +9,10 @@ import org.greenrobot.eventbus.EventBus;
 public class EventBusUtil {
 
     public static void register(Object object){
-        EventBus.getDefault().register(object);
+        //EventBus.getDefault().register(object);
     }
     public static void unRegister(Object object){
-        EventBus.getDefault().unregister(object);
+        //EventBus.getDefault().unregister(object);
     }
     public static void post(Object object){
         EventBus.getDefault().post(object);

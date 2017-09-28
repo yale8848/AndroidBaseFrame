@@ -18,4 +18,7 @@ public class IndexActivity extends AppCompatActivity {
     public void onClick(View view){
         Navigate.path(Navigate.PATH.Test).navigation();
     }
+    public void onClickList(View v){
+        Navigate.path(Navigate.PATH.List).navigation();
+    }
 }

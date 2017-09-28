@@ -1,4 +1,4 @@
-package ren.yale.android.androidbaseframe.ui.Test;
+package ren.yale.android.androidbaseframe.ui.test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

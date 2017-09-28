@@ -14,4 +14,11 @@
         android:text="test"
         android:onClick="onClick"
         />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="list"
+        android:onClick="onClickList"
+        />
 </LinearLayout>

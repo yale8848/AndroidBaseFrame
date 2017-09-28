@@ -13,6 +13,7 @@ public class Navigate {
 
     public interface PATH{
         String Test = "/ui/test";
+        String List ="/ui/list";
     }
 
 
