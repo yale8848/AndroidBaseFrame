@@ -1,10 +1,9 @@
 package ren.yale.android.androidbaseframe;
 
-import android.app.Dialog;
-
 import ren.yale.android.androidbaseframe.common.ImageLoader;
 import ren.yale.android.androidbaseframe.common.Navigate;
 import ren.yale.android.androidbaseframe.data.ApiManager;
+import ren.yale.android.androidbaseframe.data.db.StoreRoom;
 import ren.yale.android.basemvplib.BaseApp;
 
 /**
@@ -20,16 +19,6 @@ public class App extends BaseApp{
         Navigate.init(this);
         ApiManager.getInstance().init(this);
         ImageLoader.getInstance().init(this);
-
-    }
-
-    @Override
-    public Dialog getProgressDlg() {
-        return null;
-    }
-
-    @Override
-    public void showToast(String msg) {
-
+        StoreRoom.getInstance().init(this);
     }
 }

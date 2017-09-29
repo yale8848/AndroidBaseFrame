@@ -1,5 +1,6 @@
 package ren.yale.android.androidbaseframe.ui;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -20,7 +21,9 @@ public class BaseMVPFragment<P extends BasePresenter,M extends BaseModel> extend
 
         EventBusUtil.register(this);
     }
-
+    protected Dialog getProgressDlg(){
+        return new Dialog(this.getContext());
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

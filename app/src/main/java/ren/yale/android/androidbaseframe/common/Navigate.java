@@ -14,6 +14,8 @@ public class Navigate {
     public interface PATH{
         String Test = "/ui/test";
         String List ="/ui/list";
+        String RecyclerWebview="/ui/RecyclerWebviewWrap";
+        String RecyclerWebviewEvent="/ui/RecyclerWebviewEvent";
     }
 
 

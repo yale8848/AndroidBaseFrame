@@ -1,4 +1,4 @@
-package ren.yale.android.androidbaseframe.ui.test;
+package ren.yale.android.androidbaseframe.ui.test.data;
 
 
 import ren.yale.android.androidbaseframe.data.bean.Test;
@@ -11,7 +11,7 @@ public class TestPresenter extends TestContract.Presenter {
 
     public void getTest(){
         mModel.getTest().bindDestoryEvent(getPublishSubject())
-                .subscribe(new ProgressSubscriber<Test>(){
+                .subscribe(new ProgressSubscriber<Test>(getProgressDlg()){
                     @Override
                     public void onNext(Test test) {
                         mView.getTestSuccess(test);

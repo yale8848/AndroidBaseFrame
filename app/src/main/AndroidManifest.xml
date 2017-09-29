@@ -10,15 +10,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.index.IndexActivity">
+        <activity android:name=".ui.test.index.IndexActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.test.TestActivity"/>
-        <activity android:name=".ui.brvah.ListActivity">
+        <activity android:name=".ui.test.data.TestActivity"
+                  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ui.test.brvah.ListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ui.test.recycwebview.MainActivity"
+                  android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+        <activity android:name=".ui.test.recycwebview.SlideConfictActivity"
+                  android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        </activity>
+        <activity android:name=".ui.test.recycwebview.WrapContentActivity"
+                  android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         </activity>
     </application>
 

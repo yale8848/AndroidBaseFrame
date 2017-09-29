@@ -1,4 +1,4 @@
-package ren.yale.android.androidbaseframe.ui.brvah.adapter;
+package ren.yale.android.androidbaseframe.ui.test.brvah.adapter;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import ren.yale.android.androidbaseframe.R;
 import ren.yale.android.androidbaseframe.common.ImageLoader;
-import ren.yale.android.androidbaseframe.data.bean.TestItem;
+import ren.yale.android.androidbaseframe.ui.test.brvah.entity.TestItem;
 
 /**
  * Created by yale on 2017/9/28.

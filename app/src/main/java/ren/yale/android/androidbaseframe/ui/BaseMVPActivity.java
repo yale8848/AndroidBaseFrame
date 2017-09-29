@@ -1,5 +1,6 @@
 package ren.yale.android.androidbaseframe.ui;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -23,9 +24,14 @@ public class BaseMVPActivity<P extends BasePresenter,M extends BaseModel> extend
         super.onCreate(savedInstanceState);
         mImmersionBar = ImmersionBar.with(this)
                 .statusBarColor(R.color.colorPrimary)
-                .navigationBarColor(R.color.colorPrimary);
+                .navigationBarColor(R.color.colorPrimary)
+                .transparentBar();
         mImmersionBar.init();
         EventBusUtil.register(this);
+    }
+
+    protected  Dialog getProgressDlg(){
+        return new Dialog(this);
     }
 
     @Override

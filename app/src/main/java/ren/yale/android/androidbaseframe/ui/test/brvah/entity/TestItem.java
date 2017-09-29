@@ -1,4 +1,4 @@
-package ren.yale.android.androidbaseframe.data.bean;
+package ren.yale.android.androidbaseframe.ui.test.brvah.entity;
 
 /**
  * Created by yale on 2017/9/28.

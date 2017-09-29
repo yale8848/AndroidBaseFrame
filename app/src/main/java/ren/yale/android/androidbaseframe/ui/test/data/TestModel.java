@@ -1,4 +1,4 @@
-package ren.yale.android.androidbaseframe.ui.test;
+package ren.yale.android.androidbaseframe.ui.test.data;
 
 
 import ren.yale.android.androidbaseframe.data.ApiManager;

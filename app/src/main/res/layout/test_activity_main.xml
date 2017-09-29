@@ -6,19 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="ren.yale.android.androidbaseframe.ui.index.IndexActivity">
+    tools:context="ren.yale.android.androidbaseframe.ui.test.recycwebview.MainActivity">
 
-    <Button
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test"
-        android:onClick="onClick"
-        />
+        android:layout_height="wrap_content"></android.support.v7.widget.Toolbar>
 
-    <Button
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="list"
-        android:onClick="onClickList"
-        />
+        android:layout_weight="1"
+        android:layout_height="0dp"></android.support.v7.widget.RecyclerView>
+
 </LinearLayout>
