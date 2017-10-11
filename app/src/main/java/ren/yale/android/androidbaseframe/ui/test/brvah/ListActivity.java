@@ -7,9 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -101,6 +103,10 @@ public class ListActivity extends BaseSimpleActivity {
         recyclerView.setLayoutManager(layoutManager);
         ListAdapter listAdapter = new ListAdapter(R.layout.test_list_item,getData());
         listAdapter.openLoadAnimation();
+        View v = LayoutInflater.from(ListActivity.this).inflate(R.layout.test_list_item,null);
+        TextView tv = (TextView) v.findViewById(R.id.tv_name);
+        tv.setText("大家老骥伏枥看电视");
+        listAdapter.addHeaderView(v);
         recyclerView.setAdapter(listAdapter);
 
         listAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
