@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.oushangfeng.pinnedsectionitemdecoration.PinnedHeaderItemDecoration;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +27,11 @@ import ren.yale.android.androidbaseframe.ui.test.brvah.adapter.ListAdapter;
 import ren.yale.android.androidbaseframe.ui.test.brvah.adapter.MultipleItemQuickAdapter;
 import ren.yale.android.androidbaseframe.ui.test.brvah.entity.MultipleItem;
 import ren.yale.android.androidbaseframe.ui.test.brvah.entity.TestItem;
+import ren.yale.android.androidbaseframe.ui.test.list.CommonList;
+import ren.yale.android.androidbaseframe.ui.test.list.CommonRefreshListener;
+import ren.yale.android.androidbaseframe.ui.test.list.CommonRefresh;
+
+import static ren.yale.android.androidbaseframe.R.id.refreshLayout;
 
 @Route(path = Navigate.PATH.List)
 public class ListActivity extends BaseSimpleActivity {
@@ -36,6 +41,21 @@ public class ListActivity extends BaseSimpleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_activity_list);
+
+        SmartRefreshLayout smartRefreshLayout = (SmartRefreshLayout) findViewById(refreshLayout);
+
+        CommonList commonList = new CommonList(smartRefreshLayout);
+        commonList.addRefreshListener(new CommonRefreshListener() {
+            @Override
+            public void onRefresh(CommonRefresh commonList) {
+                commonList.finishRefresh(15000);
+            }
+
+            @Override
+            public void onLoadMore(CommonRefresh commonList) {
+                commonList.finishLoadmore(15000);
+            }
+        });
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
@@ -43,12 +63,9 @@ public class ListActivity extends BaseSimpleActivity {
         getSupportActionBar().setTitle("list");
        // toolbar.getBackground().mutate().setAlpha(200);
         recyclerView  = (RecyclerView) findViewById(R.id.recycler);
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+/*        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-
-
                 int off = recyclerView.computeVerticalScrollOffset();
 
                 float alpha = (float) off/mToolBarHeight;;
@@ -62,7 +79,6 @@ public class ListActivity extends BaseSimpleActivity {
                 if (alp>255){
                     alp = 255;
                 }
-
                // toolbar.getBackground().setAlpha(255-alp);
                 //float alpha = scale * 255;
                 //toolbar.setBackgroundColor(Color.argb((int) alpha* 255, 128, 0, 0));
@@ -74,7 +90,7 @@ public class ListActivity extends BaseSimpleActivity {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
             }
-        });
+        });*/
         toolbar.post(new Runnable() {
             @Override
             public void run() {
@@ -101,7 +117,7 @@ public class ListActivity extends BaseSimpleActivity {
     private void gridLayout(){
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        ListAdapter listAdapter = new ListAdapter(R.layout.test_list_item,getData());
+        ListAdapter listAdapter = new ListAdapter(R.layout.test_list_item_grid,getData());
         listAdapter.openLoadAnimation();
         View v = LayoutInflater.from(ListActivity.this).inflate(R.layout.test_list_item,null);
         TextView tv = (TextView) v.findViewById(R.id.tv_name);
